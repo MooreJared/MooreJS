@@ -1,0 +1,3 @@
+# MooreJS
+
+Currently wip.
