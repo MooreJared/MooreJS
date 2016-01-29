@@ -296,95 +296,87 @@ $.fn.backgroundColor = function (a) {
     $(item).css("background-color", a);
 };
 
-function warningGenerator(title, message, _var) {
-    var warning = {amount: 0};
-    if (window[_var] === false) {
-        window[_var] = true;
-        $("<div class='warningBox warningID" + warning.amount + "'> <h4 class='warning'>" + title + "</h4> <h5 class='warningInfo'>" + message + "</h5> <i class='material-icons warningClose warningBtn" + warning.amount + "'>close</i> </div>").prependTo('body');
-        $('.warningID' + warning.amount).center("XY", window, "auto");
-        $('.warningBtn' + warning.amount).on("click", function () {
-            $('.warningID' + warning.amount).remove();
-            warning.amount -= 1;
-            window[_var] = false;
-        });
-        $('.warningID' + warning.amount).drag({
-            cursor: "move"
-        });
-    }
-}
-
-function log(a) {
-    console.log(a);
+function log(title, content) {
+    console.log(title + ": " + content);
 }
 
 function rand(range) {
-    if (range === "undefined") {
-        console.error("Rand has no range set. i.e 5");
-    } else if ((range) === "bool") {
-        if (Math.floor((Math.random() * 2) + 1) === 1) {
-            return (true);
-        } else {
-            return (false);
-        }
-    } else if ((range.toLowerCase()) === "rgb") {
-        return ("rgb(" + (Math.floor((Math.random() * 255) + 1)) + "," + (Math.floor((Math.random() * 255) + 1)) + "," + (Math.floor((Math.random() * 255) + 1)) + ")");
-    } else if ((range.toLowerCase()) === "hex") {
-        var hex = "";
-        var loop = 0;
 
-        while (loop < 6) {
-            loop++;
-            var bool = rand("bool");
-            var randNum = rand(6);
-
-            if (bool) {
-                switch (randNum) {
-                    case 1:
-                        hex += "A";
-                        break;
-                    case 2:
-                        hex += "B";
-                        break;
-                    case 3:
-                        hex += "C";
-                        break;
-                    case 4:
-                        hex += "E";
-                        break;
-                    case 5:
-                        hex += "D";
-                        break;
-                    case 6:
-                        hex += "F";
-                        break;
+    if (typeof range === "undefined") {
+        console.error("Rand has no value i.e 'rgb', 'hex', 'bool', '12'");
+    } else if (typeof range === "string") {
+        switch (range.toLowerCase()) {
+            case "bool":
+                if (Math.floor((Math.random() * 2) + 1) === 1) {
+                    return (true);
+                } else {
+                    return (false);
                 }
-            } else {
-                switch (randNum) {
-                    case 1:
-                        hex += "1";
-                        break;
-                    case 2:
-                        hex += "2";
-                        break;
-                    case 3:
-                        hex += "3";
-                        break;
-                    case 4:
-                        hex += "4";
-                        break;
-                    case 5:
-                        hex += "5";
-                        break;
-                    case 6:
-                        hex += "6";
-                        break;
+                break;
+            case "rgb":
+                return ("rgb(" + (Math.floor((Math.random() * 255) + 1)) + "," + (Math.floor((Math.random() * 255) + 1)) + "," + (Math.floor((Math.random() * 255) + 1)) + ")");
+                break;
+            case "hex":
+                var hex = "";
+                var loop = 0;
+                while (loop < 6) {
+                    loop++;
+                    var bool;
+                    if (Math.floor((Math.random() * 2) + 1) === 1) {
+                        bool = true;
+                    } else {
+                        bool = false;
+                    }
+                    var randNum = (Math.floor((Math.random() * 6) + 1));
+                    if (bool) {
+                        switch (randNum) {
+                            case 1:
+                                hex += "A";
+                                break;
+                            case 2:
+                                hex += "B";
+                                break;
+                            case 3:
+                                hex += "C";
+                                break;
+                            case 4:
+                                hex += "E";
+                                break;
+                            case 5:
+                                hex += "D";
+                                break;
+                            case 6:
+                                hex += "F";
+                                break;
+                        }
+                    } else {
+                        switch (randNum) {
+                            case 1:
+                                hex += "1";
+                                break;
+                            case 2:
+                                hex += "2";
+                                break;
+                            case 3:
+                                hex += "3";
+                                break;
+                            case 4:
+                                hex += "4";
+                                break;
+                            case 5:
+                                hex += "5";
+                                break;
+                            case 6:
+                                hex += "6";
+                                break;
+                        }
+                    }
                 }
-            }
+                hex = ("#" + hex);
+                return hex;
+                break;
         }
-        hex = ("#" + hex);
-        return hex;
-    }
-    else {
+    } else {
         return (Math.floor((Math.random() * range) + 1));
     }
 }
