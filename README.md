@@ -1,6 +1,6 @@
 # MooreJS
 
-<h1>MooreJS requries Jquery v2.2 or higher.</h1>
+<p><i>MooreJS requries Jquery v2.2 or higher.</i></p>
 <div>
   <h3>Random Function</h3>
   <h4>Generates a verytery of random outputs</h4>
