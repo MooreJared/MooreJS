@@ -2,8 +2,7 @@
 
 <p><i>MooreJS requries Jquery v2.2 or higher.</i></p>
 <div>
-  <h3>Random Function</h3>
-  <h4>Generates a verytery of random outputs</h4>
+  <h3>Random Functions - generate a verytery of random outputs</h3>
   <p>
     <ul>
       <li>Input an intiger to get a random number from 1 to that number. Example: rand(12) --> 5</li>
