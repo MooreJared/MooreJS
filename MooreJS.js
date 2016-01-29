@@ -96,7 +96,7 @@ $.fn.center = function (axis, parent, auto) {
                     break;
             }
         } else {
-            switch (isAuto.toUpperCase()) {
+            switch (position.toUpperCase()) {
                 case "XY":
                     $(window).resize(function () {
                         centerXY();
