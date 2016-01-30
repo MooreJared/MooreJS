@@ -317,64 +317,8 @@ function rand(range) {
                 return ("rgb(" + (Math.floor((Math.random() * 255) + 1)) + "," + (Math.floor((Math.random() * 255) + 1)) + "," + (Math.floor((Math.random() * 255) + 1)) + ")");
                 break;
             case "hex":
-                var hex = "";
-                var loop = 0;
-                while (loop < 6) {
-                    loop++;
-                    var bool;
-                    if (Math.floor((Math.random() * 2) + 1) === 1) {
-                        bool = true;
-                    } else {
-                        bool = false;
-                    }
-                    var randNum = (Math.floor((Math.random() * 6) + 1));
-                    if (bool) {
-                        switch (randNum) {
-                            case 1:
-                                hex += "A";
-                                break;
-                            case 2:
-                                hex += "B";
-                                break;
-                            case 3:
-                                hex += "C";
-                                break;
-                            case 4:
-                                hex += "E";
-                                break;
-                            case 5:
-                                hex += "D";
-                                break;
-                            case 6:
-                                hex += "F";
-                                break;
-                        }
-                    } else {
-                        switch (randNum) {
-                            case 1:
-                                hex += "1";
-                                break;
-                            case 2:
-                                hex += "2";
-                                break;
-                            case 3:
-                                hex += "3";
-                                break;
-                            case 4:
-                                hex += "4";
-                                break;
-                            case 5:
-                                hex += "5";
-                                break;
-                            case 6:
-                                hex += "6";
-                                break;
-                        }
-                    }
-                }
-                hex = ("#" + hex);
-                return hex;
-                break;
+               return ("#" + Math.floor(Math.random()*0xFFFFFFFF).toString(16).toUpperCase().substring(0, 6)));
+               break;
         }
     } else {
         return (Math.floor((Math.random() * range) + 1));
