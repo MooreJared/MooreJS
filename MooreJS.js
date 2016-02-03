@@ -317,7 +317,7 @@ function rand(range) {
                 return ("rgb(" + (Math.floor((Math.random() * 255) + 1)) + "," + (Math.floor((Math.random() * 255) + 1)) + "," + (Math.floor((Math.random() * 255) + 1)) + ")");
                 break;
             case "hex":
-               return ("#" + Math.floor(Math.random()*0xFFFFFFFF).toString(16).toUpperCase().substring(0, 6)));
+               return ("#" + Math.floor(Math.random()*0xFFFFFFFF).toString(16).toUpperCase().substring(0, 6));
                break;
         }
     } else {
